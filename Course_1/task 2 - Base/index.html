@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+
+    <style>
+        .css-menu {
+            list-style: none;
+            border-bottom: 1px #888899 solid;
+            padding-bottom: 9px;
+        }
+
+        li {
+            display: inline;
+            margin-right: 35px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            background: #fffff0;
+            border: 1px #bbbbcc solid;
+            border-bottom: none;
+            padding: 10px 14px;
+        }
+
+        a.selected {
+            color: #555566;
+            background: #fff;
+            border: 1px #888899 solid;
+            border-bottom: 1px #fff solid;
+            padding: 14px 14px 10px 14px;
+        }
+        a:hover {
+            color: #2a65bc;
+        }
+    </style>
+</head>
+<body>
+    <ul class="css-menu">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#" class="selected">О себе</a></li>
+        <li><a href="#">CSS меню</a></li>
+        <li><a href="#">Справочнк</a></li>
+    </ul>
+</body>
+</html>
