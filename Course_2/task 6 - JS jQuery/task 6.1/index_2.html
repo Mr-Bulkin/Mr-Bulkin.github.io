@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p><input type="button" value="Работает?"></p>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $("input").click(function()
+        {
+            $("input").css({fontFamily: 'Tahoma', fontSize: '50px'})
+            work()
+        })
+
+        function work()
+        {
+            alert("Всё работает")
+        }
+    </script>
+</body>
+</html>

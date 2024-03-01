@@ -1,0 +1,27 @@
+*
+{
+    font-family: "Tahoma";
+}
+
+.article-name
+{
+    border: 5px solid rgb(86, 90, 154);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.article-body
+{
+    padding: 20px;
+}
+
+.article-img
+{
+    height: 30%;
+    width: 30%;
+}
+
+.article-text
+{
+    padding: 20px;
+}

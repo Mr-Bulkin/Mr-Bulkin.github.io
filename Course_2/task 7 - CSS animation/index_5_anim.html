@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <style>
+
+        .container{
+            height: 150px;
+            cursor: pointer;
+            position: relative;
+            width: 150;
+            perspective: 600; /* расположение по оси Z*/
+        }
+
+        .card{
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d; /* может пересекать Z ось родителя*/
+            transition: all 1s ease-in-out;
+            width: 100%;
+        }
+
+        .card:hover{
+            transform: rotateY(180deg);
+        }
+
+        .card .side{
+            backface-visibility: hidden;
+            color: blue;
+            line-height: 150px;
+            text-align: center;
+            transform: rotateY(180deg);
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="side">
+                    <img src="logo.jpg">
+                </div>
+                <div class="side_back">Перевернуто!</div>
+            </div>
+        </div>
+    </body>
+</html>

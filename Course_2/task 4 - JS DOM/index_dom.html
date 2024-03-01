@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Трекер задач</h1>
+    <p><input type="button" value="Добавить задачу" onclick="add_task()"></p>
+    <p><input type="button" value="Вывести все задачи" onclick="show_task_1()"></p>
+    <p><input type="button" value="Вывести поочередно" onclick="show_task_2()"></p>
+    <p><input type="button" value="Удалить первый элемент" onclick="del_task_first()"></p>
+    <p><input type="button" value="Удалить последний элемент" onclick="del_task_last()"></p>
+
+    <img src="images/25694855_sl_0210121_40570_43.jpg" width="30%" height="30%" onmouseover="alert('ХАХАХАХАХ')">
+
+    <script>
+        var tasks = [];
+        function add_task()
+        {
+            task = prompt("Что вам нужно сделать?");
+            tasks.push(task);
+            console.log(tasks);
+        }
+
+        function show_task_1()
+        {
+            alert(tasks);
+        }
+
+        function show_task_2()
+        {
+            for (let index = 0; index < tasks.length; index++) {
+                alert(tasks[index]);
+            }
+        }
+
+        function del_task_first()
+        {
+            tasks.shift();
+        }
+
+        function del_task_last()
+        {
+            tasks.pop();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Добавить задачу" onclick="add_task()">
+    <input type="button" value="Удалить задачу" onclick="del_task()">
+
+    <h1>Текущая задача</h1>
+
+    <ol id="current"></ol>
+
+    <h1>Завершенные задачи</h1>
+
+    <ol id="done"></ol>
+
+    <script>
+        function add_task()
+        {
+            //обращаюсь по id к элементу current
+            var task_list = document.getElementById('current')
+            //создаю элемент li
+            var new_task = document.createElement('li')
+            //спрашиваю у пользователя, Что нужно сделать?
+            new_task.innerHTML = prompt("Что нужно сделать?")
+            //добавляю элемент в список
+            task_list.appendChild(new_task)
+        }
+
+        function del_task()
+        {
+            //обращаюсь по id к элементу current
+            var task_list = document.getElementById('current')
+            //обращаюсь по id к элементу done
+            var tasks_del_list = document.getElementById('done')
+            //спрашиваю у пользователя, какую задачу удалить?
+            var task_number = prompt("Какую задачу удалить?")
+            // клонирую
+            var del_task = task_list.childNodes[task_number - 1].cloneNode(true)
+            // добавляю клон в список завершенных задач
+            tasks_del_list.appendChild(del_task)
+            // удаляю из первого списка
+            task_list.removeChild(task_list.lastChild)
+
+
+        }
+    </script>
+</body>
+</html>
