@@ -938,11 +938,17 @@ iframe {
     }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1200px) {
+    body {
+        zoom: 62.5%;
+    }
+}
+
+/* @media screen and (max-width: 1080px) {
     body {
         zoom: 56.25%;
     }
-}
+} */
 
 @media screen and (max-width: 660px) {
     body {
