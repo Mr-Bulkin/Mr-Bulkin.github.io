@@ -944,15 +944,15 @@ iframe {
     }
 }
 
-/* @media screen and (max-width: 1080px) {
+@media screen and (max-width: 970px) {
     body {
-        zoom: 56.25%;
+        zoom: 55.5%;
     }
-} */
+}
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 820px) {
     body {
-        zoom: 34.375%;
+        zoom: 42.7%;
     }
 }
 
