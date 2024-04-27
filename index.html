@@ -1,116 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="flex-style.css">
-    <title>Robotics</title>
+    <link rel="stylesheet" href="styles/normalize.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>2НАП</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-row">
-                <div class="header-logo">
-                    <img src="images/logo (2).svg" class="logo-img">
-                    <h1 class="logo-title">Robotics</h1>
+    <header class="header">
+        <div class="header-banner">
+            <div class="menu">
+                <div class="logo">
+                    <img src="image/logo.svg" class="logo-img">
                 </div>
-                <div class="header-menu">
-                    <ul class="menu">
-                        <li class="menu-item">
-                            <a class="menu-link" href="#">Home</a>
-                        </li>
-
-                        <li class="menu-item">
-                            <a class="menu-link" href="#">About</a>
-                        </li>
-
-                        <li class="menu-item">
-                            <a class="menu-link" href="#">Products</a>
-                        </li>
-                    </ul>
+                <nav class="nav-menu">
+                  <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Направления</a></li>
+                    <li><a href="#">Вопросы</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                  </ul>
+                </nav>
+                <a href="#" class="button menu-button">Оставить заявку</a>
+            </div>
+            <div class="banner-1">
+                <div class="banner-cover">
+                    <div class="banner-text">
+                        <div class="banner-main">
+                            <p>2НАП - <span class="graphics_gs">лучшая школа</span><br>программирования<br>и дизайна</p>
+                        </div>
+                        <div class="banner-post">
+                            <p>Сделай первые шаги в мир ИТ вместе с нами!<br>Курсы программирования и дизайна<br>для детей и взрослых!</p>
+                        </div>
+                        <div class="banner-button">
+                            <a href="#" class="button banner-link">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="banner-img">
+                        <img src="image/banner_1.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="banner-section">
-            <div class="container">
-                <div class="banner-text">
-                    <h2 class="banner-title">Products</h2>
-                    <div class="banner-description">
-                        <a href="#" class="menu-link">Home</a> &#8594; <a class="menu-link" href="#">Products</a>
+    <main class="main">
+        <div class="marketing-block">
+            <button class="arrow-button left-button" onclick="changeImage('prev')"><img src="image/larr.svg"></button>
+            <button class="arrow-button right-button" onclick="changeImage('next')"><img src="image/rarr.svg"></button>
+            <img id="marketing-img" src="image/marketing/marketing1.png" class="marketing-img">
+        </div>
+        <div class="about">
+            <div class="about-banner">
+                <h2 class="about-title"><span class="graphics_about">О нас</span></h2>
+                <div class="about-text">
+                    <p>
+                        <span class="two_nap">2НАП</span> - Современные технологии достигли такого уровня, что базовый вектор развития играет определяющее значение для вывода текущих активов. Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов. В частности, сплочённость команды профессионалов не даёт нам иного выбора, кроме определения как самодостаточных, так и внешне зависимых концептуальных решений.
+                    </p>
+                </div>
+                <div class="advantages">
+                    <div class="advantages-item">
+                        <div class="advantage-figure-number">800</div>
+                        <div class="advantage-figure-text">Учеников <br>выпустились</div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cards-section">
-            <div class="container">
-                <div class="container-text">
-                    <h2 class="cards-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                    <div class="cards-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                </div>
-                <div class="cards">
-                    <div class="cards-row">
-                        <div class="card">
-                            <img src="images/tovar.jpg" class="card-img">
-                            <div class="card-body">
-                                <h3 class="card-title">The Upper Eye</h3>
-                                <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                <div class="card-button">
-                                    <a href="#" class="card-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="images/tovar.jpg" class="card-img">
-                            <div class="card-body">
-                                <h3 class="card-title">The Upper Eye</h3>
-                                <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                <div class="card-button">
-                                    <a href="#" class="card-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="images/tovar.jpg" class="card-img">
-                            <div class="card-body">
-                                <h3 class="card-title">The Upper Eye</h3>
-                                <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                                <div class="card-button">
-                                    <a href="#" class="card-link">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="advantages-item">
+                        <div class="advantage-figure-number">180+</div>
+                        <div class="advantage-figure-text">Отзывов</div>
                     </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-row">
-                <div class="copuright">Copyright all 2024...</div>
-
-                <div class="footer-search">
-                    <input type="text" class="footer-search-input">
-                    <button class="footer-search-button">Отправить</button>
-                </div>
-
-                <div class="social-networks">
-                    <a href="#"><img src="images/Group 219.svg" class="footer-logo"></a>
-                    <a href="#"><img src="images/Group 220-1.svg" class="footer-logo"></a>
-                    <a href="#"><img src="images/Group 220.svg" class="footer-logo"></a>
-                    <a href="#"><img src="images/Group 221.svg" class="footer-logo"></a>
+                    <div class="advantages-item">
+                        <div class="advantage-figure-number">9</div>
+                        <div class="advantage-figure-text">Специальностей</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="bacground-test">
+            <div class="directions">
+                <div class="direction-programming">
+                    <div class="direction-header">
+                        <h2 class="direction-title"><span class="graphics_direction-title">Программирование</span></h2>
+                        <div class="number-direction">7 направлений</div>
+                    </div>
+                    <div class="cards-directions">
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-direction-programmer">
+                    <a href="#" class="button directions-link">Подробнее</a>
+                </div>
+                <div class="direction-disign">
+                    <div class="direction-header-disigner">
+                        <h2 class="direction-title"><span class="graphics_direction-title-design">Дизайн</span></h2>
+                        <div class="number-direction">2 направления</div>
+                    </div>
+                    <div class="cards-directions-disigner">
+                        <div class="card">
+                            <img src="image/disigner.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-disigner">Графический дизайн</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-disigner">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/disigner.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-disigner">Графический дизайн</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-disigner">Посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-container">
+            <img src="image/banner_2.svg" alt="">
+            <form action="#" class="form">
+                <div>
+                    <label for="name" class="form-label">Ваше имя</label><br>
+                    <input type="text" id="name" class="form-input" placeholder="Ваше имя">
+                </div>
+                <div>
+                    <label for="phone" class="form-label">Номер телефона</label><br>
+                    <input type="tel" id="phone" class="form-input" placeholder="Номер телефона">
+                </div>
+                <div class="form-direction">
+                    <label for="direction" class="form-label">Направление</label><br>
+                    <select id="direction" class="form-input" placeholder="Не определился">
+                        <option value="#">Не определился</option>
+                        <option value="#">Компьютерная грамотность</option>
+                        <option value="#">Графический дизайн</option>
+                        <option value="#">Создание сайтов</option>
+                    </select>
+                </div>
+                <div>
+                    <a href="#" class="button submit-button">Отправить</a>
+                </div>
+            </form>
+        </div>
+        <section class="faq-container">
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3 class="faq-question">Часто задаваемые вопросы </h3>
+                        <div class="faq-toggle">
+                            <img src="image/plus.svg" class="toggle-img">
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Современные технологии достигли такого уровня, что базовый вектор развития играет определяющее значение для вывода текущих активов. Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов. В частности, сплочённость команды профессионалов не даёт нам иного выбора, кроме определения как самодостаточных, так и внешне зависимых концептуальных решений. </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3 class="faq-question">Часто задаваемые вопросы </h3>
+                        <div class="faq-toggle">
+                            <img src="image/plus.svg" class="toggle-img">
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Современные технологии достигли такого уровня, что базовый вектор развития играет определяющее значение для вывода текущих активов. Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов. В частности, сплочённость команды профессионалов не даёт нам иного выбора, кроме определения как самодостаточных, так и внешне зависимых концептуальных решений. </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3 class="faq-question">Часто задаваемые вопросы </h3>
+                        <div class="faq-toggle">
+                            <img src="image/plus.svg" class="toggle-img">
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Современные технологии достигли такого уровня, что базовый вектор развития играет определяющее значение для вывода текущих активов. Мы вынуждены отталкиваться от того, что начало повседневной работы по формированию позиции, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов. В частности, сплочённость команды профессионалов не даёт нам иного выбора, кроме определения как самодостаточных, так и внешне зависимых концептуальных решений. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="feedback-container">
+            <div class="feedback-content">
+                <div class="feedback-header">
+                    <h2 class="feedback-title"><span class="graphics_feedback-title">Отзывы</span></h2>
+                    <div class="feedback-number">183 отзыва</div>
+                </div>
+                <div class="cards-feedback">
+                    <div class="card-feedback">
+                        <div class="card-feedback-header">
+                            <p class="first-name">Анна</p>
+                            <p class="last-name">Иванова</p>
+                        </div>
+                        <div class="card-feedback-body">
+                            <p class="feedback-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae, magni velit delectus dolorum unde earum porro facilis non culpa iste deleniti rem corrupti nemo. Nisi adipisci delectus atque dolor!</p>
+                        </div>
+                    </div>
+                    <div class="card-feedback">
+                        <div class="card-feedback-header">
+                            <p class="first-name">Анна</p>
+                            <p class="last-name">Иванова</p>
+                        </div>
+                        <div class="card-feedback-body">
+                            <p class="feedback-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae, magni velit delectus dolorum unde earum porro facilis non culpa iste deleniti rem corrupti nemo. Nisi adipisci delectus atque dolor!</p>
+                        </div>
+                    </div>
+                    <div class="card-feedback">
+                        <div class="card-feedback-header">
+                            <p class="first-name">Анна</p>
+                            <p class="last-name">Иванова</p>
+                        </div>
+                        <div class="card-feedback-body">
+                            <p class="feedback-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae, magni velit delectus dolorum unde earum porro facilis non culpa iste deleniti rem corrupti nemo. Nisi adipisci delectus atque dolor!</p>
+                        </div>
+                    </div>
+                    <div class="card-feedback">
+                        <div class="card-feedback-header">
+                            <p class="first-name">Анна</p>
+                            <p class="last-name">Иванова</p>
+                        </div>
+                        <div class="card-feedback-body">
+                            <p class="feedback-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae, magni velit delectus dolorum unde earum porro facilis non culpa iste deleniti rem corrupti nemo. Nisi adipisci delectus atque dolor! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam sapiente eum, accusamus officiis voluptates vel magnam accusantium esse placeat, molestiae, vero odit atque ducimus excepturi iure cupiditate maiores neque Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta architecto accusantium cupiditate? Illum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-buttons">
+                    <button class="feedback-button feedback-left-button" onclick="changeImage('prev')"><img src="image/larr_fb.svg"></button>
+                    <button class="feedback-button feedback-right-button" onclick="changeImage('next')"><img src="image/rarr_fb.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="adress-container">
+            <div class="adress-content">
+                <div class="adress-info">
+                    <h2 class="adress-title">Наш офис</h2>
+                    <div class="adress-item">
+                        <div class="adress-icon">
+                            <img src="image/map-tag.svg">
+                        </div>
+                        <div class="adress-text">г. Самара, ул. Ново-Вокзальная, 116</div>
+                    </div>
+                    <div class="adress-item">
+                        <div class="rasp-icon">
+                            <img src="image/clock.svg">
+                        </div>
+                        <div class="rasp-text">с 10:00 до 21:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="adress-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2388.09662659492!2d50.21848367720675!3d53.234044172256894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x416619440fac77dd%3A0x770acd520415113e!2sNovo-Vokzal&#39;naya%20Ulitsa%2C%20116%2C%20Samara%2C%20Samarskaya%20oblast&#39;%2C%20443081!5e0!3m2!1sen!2sru!4v1713964798829!5m2!1sen!2sru" width="730" height="488" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="button-end">
+            <a href="#" class="button end-link">Оставить заявку</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <nav class="footer-nav-menu">
+            <ul>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Направления</a></li>
+            <li><a href="#">Вопросы</a></li>
+            <li><a href="#">Отзывы</a></li>
+            </ul>
+        </nav>
+        <div class="footer-logo">
+            <img src="image/logo-white.svg" class="logo-img">
+        </div>
     </footer>
 </body>
+<script src="./scripts/script.js"></script>
 </html>
