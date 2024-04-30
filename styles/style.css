@@ -5,6 +5,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(249, 249, 251, 1);
     overflow-x: hidden;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 p, h2, h3 {
@@ -49,6 +52,7 @@ p, h2, h3 {
     max-width: 1580px;
     height: 80px;
     margin: 0 auto;
+    margin-top: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,6 +85,11 @@ p, h2, h3 {
 .nav-menu ul li a {
     text-decoration: none;
     color: #000;
+    color: rgba(0, 0, 0, 1);
+}
+
+.nav-menu ul li a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .menu-button {
@@ -148,6 +157,10 @@ p, h2, h3 {
     border-radius: 63px;
 }
 
+.button:hover {
+    background-color: rgba(0, 57, 203, 1);
+}
+
 .menu-button {
     padding: 7px 18px;
     box-shadow: 0 0 22px rgba(0, 117, 255, 0.28);
@@ -175,6 +188,7 @@ p, h2, h3 {
 }
 
 .arrow-button {
+    display: grid;
     position: absolute;
     top: 14px;
     right: 20px;
@@ -183,15 +197,16 @@ p, h2, h3 {
     border-radius: 50%;
     background-color: #fff;
     border: none;
-    font-size: 36px;
-    font-weight: 800;
-    color: #000;
 }
 
 .arrow-button img {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin-left: 13px;
+    margin-top: 16.5px; */
+    /* margin: 13px 16.5px; */
+    /* vertical-align: middle; */
+    margin: auto;
 }
 
 .arrow-button:hover {
@@ -233,7 +248,8 @@ p, h2, h3 {
     height: 35px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 115px;
+    /* top: 115px; */
+    top: 100%;
 }
 
 .graphics_about::after {
@@ -243,8 +259,10 @@ p, h2, h3 {
     height: 20px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 85px;
-    right: -35px;
+    top: 73%;
+    /* top: 85px; */
+    right: -12%;
+    /* right: -35px; */
 }
 
 .about-banner {
@@ -402,8 +420,10 @@ p, h2, h3 {
     height: 55px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 120px;
-    left: -15px;
+    top: 100%;
+    /* top: 120px; */
+    left: -1.5%;
+    /* left: -15px; */
 }
 
 .graphics_direction-title::after {
@@ -413,8 +433,10 @@ p, h2, h3 {
     height: 20px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 85px;
-    right: -35px;
+    top: 73%;
+    /* top: 85px; */
+    right: -3%;
+    /* right: -35px; */
 }
 
 .number-direction {
@@ -540,7 +562,8 @@ p, h2, h3 {
     height: 55px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 115px;
+    /* top: 115px; */
+    top: 100%;
 }
 
 .graphics_direction-title-design::after {
@@ -550,8 +573,10 @@ p, h2, h3 {
     height: 20px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 85px;
-    right: -35px;
+    top: 73%;
+    /* top: 85px; */
+    right: -9%;
+    /* right: -35px; */
 }
 
 .cards-directions-disigner {
@@ -574,6 +599,10 @@ p, h2, h3 {
     font-weight: 500;
     padding: 10px 28px;
     box-shadow: 0 0 41px rgba(255, 245, 0, 0.28);
+}
+
+.card-button-disigner:hover {
+    background-color: rgba(227, 192, 13, 1);
 }
 
 .form-container {
@@ -662,14 +691,30 @@ p, h2, h3 {
     margin: 157px auto 0 auto;
 }
 
-.faq-item {
+.details {
     width: 100%;
     margin-bottom: 36px;
+    transition: 0.3s;
+    position: relative;
 }
 
-.faq-question {
-    font-weight: 600;
-    text-transform: uppercase;
+.details[open] {
+    padding-bottom: 36px;
+}
+
+.faq-answer {
+    font-size: 24px;
+    font-weight: 400;
+    background-color: rgba(246, 246, 246, 1);
+    color: rgba(47, 47, 47, 1);
+    box-shadow: 0 3px 11px rgba(55, 47, 39, 0.17);
+    border-radius: 0 0 40px 40px;
+    padding: 60px 20px 28px;
+    transition: .3s;
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 0;
+    margin-top: -40px;
 }
 
 .faq-header {
@@ -678,11 +723,16 @@ p, h2, h3 {
     align-items: center;
     cursor: pointer;
     background-color: rgba(255, 229, 0, 1);
-    border-radius: 100px;
+    border-radius: 40px;
     height: 80px;
     font-size: 32px;
     padding: 0 10px 0 20px;
     color: rgba(255, 255, 255, 1);
+    list-style: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
 }
 
 .faq-toggle {
@@ -693,24 +743,6 @@ p, h2, h3 {
     align-items: center;
     border-radius: 50%;
     background-color: rgba(253, 253, 253, 1);
-}
-
-.faq-answer {
-    font-size: 24px;
-    font-weight: 400;
-    background-color: rgba(246, 246, 246, 1);
-    color: rgba(47, 47, 47, 1);
-    box-shadow: 0 3px 11px rgba(55, 47, 39, 0.17);
-    display: none;
-    border-radius: 40px;
-}
-
-.faq-answer p{
-    padding: 20px 28px;
-}
-
-.faq-answer.show {
-    display: block;
 }
 
 .feedback-container {
@@ -751,7 +783,8 @@ p, h2, h3 {
     height: 55px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 105px;
+    top: 90%;
+    /* top: 105px; */
 }
 
 .graphics_feedback-title::after {
@@ -761,8 +794,10 @@ p, h2, h3 {
     height: 20px;
     background-repeat: no-repeat;
     position: absolute;
-    top: 85px;
-    right: -35px;
+    top: 73%;
+    /* top: 85px; */
+    right: -8%;
+    /* right: -35px; */
 }
 
 .feedback-number {
@@ -825,10 +860,12 @@ p, h2, h3 {
     border: none;
 }
 
-.feedback-button img {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+.feedback-buttons button {
+    margin-right: 15px;
+}
+
+.feedback-buttons button:last-child {
+    margin-right: 0;
 }
 
 .feedback-button:hover {
@@ -925,7 +962,11 @@ iframe {
 
 .footer-nav-menu ul li a {
     text-decoration: none;
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
+}
+
+.footer-nav-menu ul li a:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
 }
 
 .footer-logo {
