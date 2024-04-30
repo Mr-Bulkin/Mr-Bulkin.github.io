@@ -1,3 +1,44 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item details');
+
+    faqItems.forEach(function(item) {
+        const toggle = item.querySelector('.toggle-img');
+        const answer = item.querySelector('.faq-answer');
+
+        item.addEventListener('toggle', function() {
+            if (item.open) {
+                answer.classList.add('show');
+                toggle.src = 'image/minus.svg';
+            } else {
+                answer.classList.remove('show');
+                toggle.src = 'image/plus.svg';
+            }
+        });
+    });
+});
+
+const details = document.querySelectorAll('details');
+
+// Проходимся по каждому элементу
+details.forEach(item => {
+
+  // На каждый элемент вешаем слушатель события клика
+  item.addEventListener('click', (e) => {
+
+    // Сбрасываем стандартное действие при клике
+    e.preventDefault();
+    
+    // Находим открытый элемент
+    const openItem = document.querySelector('details[open]');
+    
+    // Если есть открытый элемент удаляем ему атрибут open
+    if (openItem) openItem.open = false;
+
+    // Если открытый элемент не является тем, на который мы нажали, то нажатому элементу добавляем атрибут open
+    if (openItem !== item) item.open = true 
+  })
+})
+
 let currentImageIndex = 1; // Индекс текущего изображения
 
 function changeImage(direction) {
@@ -13,17 +54,28 @@ function changeImage(direction) {
     imgElement.src = `image/marketing/marketing${currentImageIndex}.png`; // Устанавливаем новый источник изображения
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
+let intervalId; // Переменная для хранения идентификатора интервала
 
-        faqItems.forEach(function(item) {
-            const header = item.querySelector('.faq-header');
-            const toggle = item.querySelector('.toggle-img');
-            const answer = item.querySelector('.faq-answer');
+// Функция для запуска интервала смены изображений
+function startInterval() {
+    intervalId = setInterval(function() {
+        changeImage('next'); // Переключаемся на следующее изображение
+    }, 10000); // Интервал смены изображений каждые 15 секунд (15000 миллисекунд)
+}
 
-            header.addEventListener('click', function() {
-                answer.classList.toggle('show');
-                toggle.src = answer.classList.contains('show') ? 'image/minus.svg' : 'image/plus.svg';
-            });
-        });
-    });
+// Запускаем интервал смены изображений
+startInterval();
+
+// Обработчик события для кнопки "Вперед"
+document.getElementById('next-btn').addEventListener('click', function() {
+    clearInterval(intervalId); // Очищаем предыдущий интервал
+    changeImage('next'); // Переключаем изображение
+    startInterval(); // Запускаем новый интервал
+});
+
+// Обработчик события для кнопки "Назад"
+document.getElementById('prev-btn').addEventListener('click', function() {
+    clearInterval(intervalId); // Очищаем предыдущий интервал
+    changeImage('prev'); // Переключаем изображение
+    startInterval(); // Запускаем новый интервал
+});
