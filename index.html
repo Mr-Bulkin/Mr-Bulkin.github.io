@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/normalize.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
     <title>2НАП</title>
+    <!-- <meta name="description" content="ВСТАВИТЬ ОПИСАНИЕ"> -->
+    <meta name="keywords" content="2НАП, Школа, Самара, Программирование, Дизайн">
+
+    <meta name="robots" content="index,follow,noodp">
+    <meta name="googlebot" content="index,follow">
+
+    <meta name="subject" content="2НАП - лучшая школа программирования и дизайна">
+    <meta content="2НАП">
+    <meta content="website">
+
+    <meta property="og:title" content="2НАП">
+    <!-- <meta property="og:description" content="ВСТАВИТЬ ОПИСАНИЕ"> -->
+    <meta property="og:image" content="">
+
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header class="header">
@@ -16,13 +32,13 @@
                 </div>
                 <nav class="nav-menu">
                   <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Направления</a></li>
-                    <li><a href="#">Вопросы</a></li>
-                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#directions">Направления</a></li>
+                    <li><a href="#faq">Вопросы</a></li>
+                    <li><a href="#feedback">Отзывы</a></li>
                   </ul>
                 </nav>
-                <a href="#" class="button menu-button">Оставить заявку</a>
+                <a href="#form" class="button menu-button">Оставить заявку</a>
             </div>
             <div class="banner-1">
                 <div class="banner-cover">
@@ -34,7 +50,7 @@
                             <p>Сделай первые шаги в мир ИТ вместе с нами!<br>Курсы программирования и дизайна<br>для детей и взрослых!</p>
                         </div>
                         <div class="banner-button">
-                            <a href="#" class="button banner-link">Подробнее</a>
+                            <a href="#directions" class="button banner-link">Подробнее</a>
                         </div>
                     </div>
                     <div class="banner-img">
@@ -51,7 +67,7 @@
             <button class="arrow-button right-button" onclick="changeImage('next')"><img src="image/rarr.svg"></button>
             <img id="marketing-img" src="image/marketing/marketing1.png" class="marketing-img">
         </div>
-        <div class="about">
+        <div class="about" id="about">
             <div class="about-banner">
                 <h2 class="about-title"><span class="graphics_about">О нас</span></h2>
                 <div class="about-text">
@@ -76,13 +92,45 @@
             </div>
         </div>
         <div class="bacground-test">
-            <div class="directions">
+            <div class="directions" id="directions">
                 <div class="direction-programming">
                     <div class="direction-header">
                         <h2 class="direction-title"><span class="graphics_direction-title">Программирование</span></h2>
                         <div class="number-direction">7 направлений</div>
                     </div>
-                    <div class="cards-directions">
+                    <div class="cards-directions" id="cards">
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                            </div>
+                        </div>
                         <div class="card">
                             <img src="image/programmer.svg" class="card-img">
                             <div class="card-body">
@@ -110,7 +158,7 @@
                     </div>
                 </div>
                 <div class="button-direction-programmer">
-                    <a href="#" class="button directions-link">Подробнее</a>
+                    <a class="button directions-link" id="show-more">Показать еще</a>
                 </div>
                 <div class="direction-disign">
                     <div class="direction-header-disigner">
@@ -140,14 +188,14 @@
         </div>
         <div class="form-container">
             <img src="image/banner_2.svg" alt="">
-            <form action="#" class="form">
+            <form action="#" class="form" id="form">
                 <div>
                     <label for="name" class="form-label">Ваше имя</label><br>
-                    <input type="text" id="name" class="form-input" placeholder="Ваше имя">
+                    <input type="text" onkeydown="return /[a-z\а-я]/i.test(event.key)" id="name" class="form-input" placeholder="Ваше имя">
                 </div>
                 <div>
                     <label for="phone" class="form-label">Номер телефона</label><br>
-                    <input type="tel" id="phone" class="form-input" placeholder="Номер телефона">
+                    <input type="tel" onkeydown="return /[0-9\+\del]/i.test(event.key)" id="phone" class="form-input" placeholder="Номер телефона">
                 </div>
                 <div class="form-direction">
                     <label for="direction" class="form-label">Направление</label><br>
@@ -164,7 +212,7 @@
             </form>
         </div>
         <section class="faq-container">
-            <div class="faq">
+            <div class="faq" id="faq">
                 <div class="faq-item">
                     <details class="details">
                         <summary class="faq-header">
@@ -197,7 +245,7 @@
             </div>
         </section>
         <div class="feedback-container">
-            <div class="feedback-content">
+            <div class="feedback-content" id="feedback">
                 <div class="feedback-header">
                     <h2 class="feedback-title"><span class="graphics_feedback-title">Отзывы</span></h2>
                     <div class="feedback-number">183 отзыва</div>
@@ -269,17 +317,17 @@
             </div>
         </div>
         <div class="button-end">
-            <a href="#" class="button end-link">Оставить заявку</a>
+            <a href="#form" class="button end-link">Оставить заявку</a>
         </div>
     </main>
 
     <footer class="footer">
         <nav class="footer-nav-menu">
             <ul>
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Направления</a></li>
-            <li><a href="#">Вопросы</a></li>
-            <li><a href="#">Отзывы</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#directions">Направления</a></li>
+                <li><a href="#faq">Вопросы</a></li>
+                <li><a href="#feedback">Отзывы</a></li>
             </ul>
         </nav>
         <div class="footer-logo">
