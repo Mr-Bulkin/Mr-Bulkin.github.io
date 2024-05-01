@@ -1,3 +1,36 @@
+var button = document.getElementById("show-more");
+var list = document.getElementById("cards");
+var items = list.getElementsByClassName("card");
+var visibleItemCount = 3; // количество элементов, которые отображаются изначально
+var hiddenItemCount = items.length - visibleItemCount; // количество скрытых элементов
+var isHidden = true; // флаг для отслеживания состояния кнопки
+
+// Скрыть все элементы, кроме первых visibleItemCount
+for (var i = visibleItemCount; i < items.length; i++) {
+    items[i].style.display = "none";
+}
+
+button.onclick = function() {
+    if (isHidden) {
+        // Показать следующие hiddenItemCount элементов
+        for (var i = visibleItemCount; i < visibleItemCount + hiddenItemCount; i++) {
+            if (items[i]) {
+                items[i].style.display = "block";
+            }
+        }
+        button.textContent = "Скрыть";
+    } else {
+        // Скрыть все элементы, кроме первых visibleItemCount
+        for (var i = visibleItemCount; i < items.length; i++) {
+            items[i].style.display = "none";
+        }
+        button.textContent = "Показать еще";
+    }
+    isHidden = !isHidden; // Инвертировать состояние кнопки
+};
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item details');
 
