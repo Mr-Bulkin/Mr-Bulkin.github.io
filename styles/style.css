@@ -1104,7 +1104,7 @@ iframe {
         background-color: rgba(255, 255, 255, 1);
         max-width: 430px;
         margin: 0;
-        /* overflow-y: hidden; */
+        overflow-x: hidden;
     }
 
     .header-banner {
