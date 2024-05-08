@@ -1,7 +1,14 @@
 var button = document.getElementById("show-more");
 var list = document.getElementById("cards");
 var items = list.getElementsByClassName("card");
-var visibleItemCount = 3; // количество элементов, которые отображаются изначально
+if ( window.matchMedia("(max-width: 430px)").matches)
+{
+    var visibleItemCount = 4;
+}
+else
+{
+    var visibleItemCount = 3;
+}
 var hiddenItemCount = items.length - visibleItemCount; // количество скрытых элементов
 var isHidden = true; // флаг для отслеживания состояния кнопки
 
@@ -73,7 +80,11 @@ details.forEach(item => {
 })
 
 let currentImageIndex = 1; // Индекс текущего изображения
+let intervalId; // Переменная для хранения идентификатора интервала
+let touchStartX; // Переменная для хранения начальной позиции касания
+let touchEndX; // Переменная для хранения конечной позиции касания
 
+// Функция для смены изображения
 function changeImage(direction) {
     const totalImages = 3; // Общее количество изображений
     const imgElement = document.getElementById('marketing-img');
@@ -87,13 +98,11 @@ function changeImage(direction) {
     imgElement.src = `image/marketing/marketing${currentImageIndex}.png`; // Устанавливаем новый источник изображения
 }
 
-let intervalId; // Переменная для хранения идентификатора интервала
-
 // Функция для запуска интервала смены изображений
 function startInterval() {
     intervalId = setInterval(function() {
         changeImage('next'); // Переключаемся на следующее изображение
-    }, 10000); // Интервал смены изображений каждые 15 секунд (15000 миллисекунд)
+    }, 10000); // Интервал смены изображений каждые 10 секунд (10000 миллисекунд)
 }
 
 // Запускаем интервал смены изображений
@@ -112,3 +121,45 @@ document.getElementById('prev-btn').addEventListener('click', function() {
     changeImage('prev'); // Переключаем изображение
     startInterval(); // Запускаем новый интервал
 });
+
+// Функция для обработки свайпа
+function handleSwipe(startX, endX) {
+    const threshold = 50; // Пороговое значение для определения свайпа
+    const deltaX = endX - startX;
+
+    if (deltaX > threshold) {
+        // Свайп вправо
+        clearInterval(intervalId); // Очищаем предыдущий интервал
+        changeImage('prev'); // Переключаем изображение
+        startInterval(); // Запускаем новый интервал
+    } else if (deltaX < -threshold) {
+        // Свайп влево
+        clearInterval(intervalId); // Очищаем предыдущий интервал
+        changeImage('next'); // Переключаем изображение
+        startInterval(); // Запускаем новый интервал
+    }
+}
+
+// Функция для обработки события touchstart
+function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX; // Запоминаем начальную позицию касания
+}
+
+// Функция для обработки события touchmove
+function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX; // Запоминаем конечную позицию касания
+}
+
+// Функция для обработки события touchend
+function handleTouchEnd(event) {
+    if (touchStartX && touchEndX) {
+        handleSwipe(touchStartX, touchEndX); // Обрабатываем свайп
+        touchStartX = null;
+        touchEndX = null;
+    }
+}
+
+// Добавляем обработчики событий для свайпа
+document.addEventListener('touchstart', handleTouchStart);
+document.addEventListener('touchmove', handleTouchMove);
+document.addEventListener('touchend', handleTouchEnd);
