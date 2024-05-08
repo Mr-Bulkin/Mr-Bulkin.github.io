@@ -999,10 +999,6 @@ iframe {
     margin: 96px auto 92px auto;
 }
 
-
-
-
-
 @media screen and (max-width: 1500px) {
     body {
         zoom: 78.125%;
@@ -1088,6 +1084,10 @@ iframe {
         z-index: -10;
     }
 
+    .nav-menu ul li a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    }
+
     .logo {
         z-index: 3;
     }
@@ -1112,13 +1112,31 @@ iframe {
         margin: 0;
         max-width: 430px;
     }
-    
+
     .header-banner::before {
-        display: none;
+        content: "";
+        position: absolute;
+        top: 35px;
+        left: -272px;
+        width: 342px;
+        height: 342px;
+        border-radius: 50%;
+        background-color: rgba(255, 221, 45, 0.6);
+        filter: blur(40px);
+        z-index: -1;
     }
     
     .header-banner::after {
-        display: none;
+        content: "";
+        position: absolute;
+        top: 200px;
+        left: 285px;
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        background-color: rgba(19, 29, 247, 0.15);
+        filter: blur(60px);
+        z-index: -1;
     }
 
     .menu {
@@ -1162,6 +1180,10 @@ iframe {
     }
     
     .button:hover {
+        background-color: rgba(0, 71, 255, 1);
+    }
+
+    .button:active {
         background-color: rgba(0, 57, 203, 1);
     }
     
@@ -1186,6 +1208,7 @@ iframe {
 
     .marketing-block {
         position: relative;
+        margin-top: 23px;
         max-width: 404px;
         height: 161px;
         box-shadow: 0 17px 40px rgba(0, 0, 0, 0.15);
@@ -1219,7 +1242,7 @@ iframe {
     
     .graphics_about::before {
         content: "";
-        background-image: url("../image/graphics_underline/line-about.svg");
+        background-image: url("../image/graphics_underline/graphics_underline_mb/line-about.svg");
         width: 100%;
         /* width: 300px; */
         height: 100%;
@@ -1228,13 +1251,14 @@ iframe {
         position: absolute;
         /* top: 115px; */
         top: 100%;
+        stroke-width:4px;
     }
     
     .graphics_about::after {
         content: "";
-        background-image: url("../image/graphics_underline/point-about.svg");
-        width: 20px;
-        height: 20px;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/point-about.svg");
+        width: 10px;
+        height: 10px;
         background-repeat: no-repeat;
         position: absolute;
         top: 73%;
@@ -1259,26 +1283,26 @@ iframe {
     .about::before {
         content: "";
         position: absolute;
-        top: 343px;
-        left: -580px;
-        width: 700px;
-        height: 577px;
+        top: -47px;
+        left: 310px;
+        width: 417px;
+        height: 182px;
         border-radius: 50%;
         background-color: rgba(255, 233, 35, 1);
-        filter: blur(100px);
+        filter: blur(25px);
         z-index: -1;
     }
     
     .about::after {
         content: "";
         position: absolute;
-        top: 22px;
-        left: 1721px;
-        width: 1320px;
-        height: 577px;
+        top: 420px;
+        left: -253px;
+        width: 396px;
+        height: 182px;
         border-radius: 50%;
         background-color: rgba(255, 233, 35, 1);
-        filter: blur(100px);
+        filter: blur(25px);
         z-index: -1;
     }
     
@@ -1362,8 +1386,8 @@ iframe {
     
     .graphics_direction-title::before {
         content: "";
-        background-image: url("../image/graphics_underline/line-prog.svg");
-        width: 101.5%;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/line-prog.svg");
+        width: 100%;
         height: 100%;
         background-repeat: no-repeat;
         position: absolute;
@@ -1373,9 +1397,9 @@ iframe {
     
     .graphics_direction-title::after {
         content: "";
-        background-image: url("../image/graphics_underline/point-prog.svg");
-        width: 20px;
-        height: 20px;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/point-prog.svg");
+        width: 10px;
+        height: 10px;
         background-repeat: no-repeat;
         position: absolute;
         top: 73%;
@@ -1468,7 +1492,7 @@ iframe {
     
     .graphics_direction-title-design::before {
         content: "";
-        background-image: url("../image/graphics_underline/line-design.svg");
+        background-image: url("../image/graphics_underline/graphics_underline_mb/line-design.svg");
         width: 100%;
         height: 100%;
         background-repeat: no-repeat;
@@ -1478,9 +1502,9 @@ iframe {
     
     .graphics_direction-title-design::after {
         content: "";
-        background-image: url("../image/graphics_underline/point-design.svg");
-        width: 20px;
-        height: 20px;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/point-design.svg");
+        width: 10px;
+        height: 10px;
         background-repeat: no-repeat;
         position: absolute;
         top: 73%;
@@ -1504,6 +1528,10 @@ iframe {
     }
     
     .card-button-disigner:hover {
+        background-color: rgba(255, 221, 45, 1);
+    }
+
+    .card-button-disigner:active {
         background-color: rgba(227, 192, 13, 1);
     }
 
@@ -1511,7 +1539,6 @@ iframe {
 
 
     .form-container {
-        display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0;
@@ -1522,10 +1549,16 @@ iframe {
         margin-top: 80px;
         box-shadow: none;
         border-radius: 20px;
+        justify-content: flex-start;
     }
 
     .form-container img{
         width: 200px;
+    }
+
+    .container-img {
+        width: 100%;
+        text-align: center;
     }
     
     .form-container::before {
@@ -1666,8 +1699,8 @@ iframe {
     
     .graphics_feedback-title::before {
         content: "";
-        background-image: url("../image/graphics_underline/line-fb.svg");
-        width: 105%;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/line-fb.svg");
+        width: 100%;
         height: 100%;
         background-repeat: no-repeat;
         position: absolute;
@@ -1677,9 +1710,9 @@ iframe {
     
     .graphics_feedback-title::after {
         content: "";
-        background-image: url("../image/graphics_underline/point-fb.svg");
-        width: 20px;
-        height: 20px;
+        background-image: url("../image/graphics_underline/graphics_underline_mb/point-fb.svg");
+        width: 10px;
+        height: 10px;
         background-repeat: no-repeat;
         position: absolute;
         top: 73%;
@@ -1835,6 +1868,14 @@ iframe {
     
     .footer-nav-menu ul li:last-child {
         margin-right: 52px;
+    }
+
+    .footer-nav-menu ul li a:hover {
+        border-bottom: 0 solid rgba(255, 255, 255, 1);
+    }
+
+    .footer-nav-menu ul li a:active {
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
     }
     
     .footer-logo {
