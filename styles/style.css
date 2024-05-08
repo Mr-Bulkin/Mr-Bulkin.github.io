@@ -58,7 +58,8 @@ p, h2, h3 {
     margin: 0 auto;
     margin-top: 12px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    /* justify-content: space-between; */
     align-items: center;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 98px;
@@ -78,9 +79,21 @@ p, h2, h3 {
     background-color: #0047FF;
     z-index: 6;
 } */
-  
+
+.header-burger-ghost {
+    display: none;
+}
+
+.header-burge {
+    display: none;
+}
+
 .logo {
     margin-left: 30px;
+}
+
+.nav-menu {
+    margin: 0 auto;
 }
 
 .nav-menu ul {
@@ -92,6 +105,10 @@ p, h2, h3 {
 
 .nav-menu ul li {
     margin-right: 20px;
+}
+
+.nav-menu ul li:first-child {
+    display: none;
 }
 
 .nav-menu ul li:last-child {
@@ -1030,12 +1047,19 @@ iframe {
 }
 
 @media screen and (max-width: 430px) {
-    /* .header-burger {
+
+    .header-burger {
         display: block;
         position: relative;
         width: 30px;
         height: 24px;
-        z-index: 3;
+        margin-right: 20px;
+        z-index: 2;
+    }
+
+    .header-burger-ghost {
+        width: 50px;
+        height: 24px;
     }
     .header-burger-span {
         position: absolute;
@@ -1045,6 +1069,7 @@ iframe {
         left: 0;
         top: 10px;
         border-radius: 49px;
+        transition: all 0.3s ease 0s;
     }
     .header-burger::before,
     .header-burger::after {
@@ -1055,49 +1080,83 @@ iframe {
         height: 4px;
         left: 0;
         border-radius: 49px;
+        transition: all 0.3s ease 0s;
     }
     .header-burger::before {
         top: 0;
     }
+    
     .header-burger::after {
         bottom: 0;
     }
 
-    .header-banner {
-        overflow: visible;
+    .header-burger.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .header-burger.active::after {
+        transform: rotate(-45deg);
+        top: 9px;
+    }
+
+    .header-burger.active span {
+        transform: scale(0);
     }
 
     .nav-menu {
         position: fixed;
-        top: 0;
+        top: 64px;
+        /* top: 0; */
         left: 0;
         width: 100%;
         height: 100%;
-        /* background-color: red; */
-        /* 
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
         z-index: 1;
+        display: none;
+    }
+
+    .menu-button {
+        position: fixed;
+        padding: 7px, 18px, 7px, 18px;
+        font-size: 20px;
+        z-index: 2;
+        top: 710px;
+        margin: 0 112px;
+        display: none;
     }
 
     .nav-menu ul{
         display: flex;
-        position: relative;
-        z-index: -10;
+        flex-direction: column;
+        gap: 56px;
+        align-items: flex-end;
+        margin-top: 227px;
+        font-size: 20px;
+        font-weight: 570;
+        /* position: relative; */
+    }
+
+    .nav-menu ul li:first-child {
+        display: inline;
+    }
+
+    .nav-menu ul li img {
+        padding-right: 16px;
+    }
+
+    .nav-menu ul li {
+        margin-right: 52px;
+    }
+    
+    .nav-menu ul li:last-child {
+        margin-right: 52px;
     }
 
     .nav-menu ul li a:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     }
-
-    .logo {
-        z-index: 3;
-    }
-
-    .menu {
-        max-width: 430px;
-        border-radius: 0;
-        margin-top: 0;
-        height: 50px;
-    } */
 
     body {
         zoom: 1;
@@ -1143,7 +1202,17 @@ iframe {
         max-width: 100%;
         border-radius: 0;
         margin: 0;
-        display: none;
+        height: 64px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 0px;
+        font-weight: 400;
+        font-size: 24px;
+        box-shadow: none;
+    }
+
+    .logo {
+        margin: 0 auto;
+        z-index: 2;
     }
 
     .banner-1 {
@@ -1152,6 +1221,7 @@ iframe {
         margin: 0;
         padding: 0;
         margin: 0 20px;
+        margin-top: 112px;
     }
     
     .banner-cover {
@@ -1187,10 +1257,6 @@ iframe {
         background-color: rgba(0, 57, 203, 1);
     }
     
-    .menu-button {
-        display: none;
-    }
-    
     .banner-button {
         padding-bottom: 20px;
     }
@@ -1214,6 +1280,8 @@ iframe {
         box-shadow: 0 17px 40px rgba(0, 0, 0, 0.15);
         border-radius: 15px;
         overflow: hidden;
+        z-index: -1;
+        
     }
     
     .arrow-button {
@@ -1880,9 +1948,5 @@ iframe {
     
     .footer-logo {
         margin: 189px auto 98px auto;
-    }
-    
-    .header-burger {
-        display: none;
     }
 }
