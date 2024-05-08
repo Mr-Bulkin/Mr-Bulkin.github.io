@@ -57,6 +57,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    if ( window.matchMedia("(max-width: 430px)").matches)
+    {
+        // Находим элементы
+        const headerBurger = document.querySelector('.header-burger');
+        const navMenu = document.getElementById('nav-menu');
+        const menuButton = document.getElementById('menu-button');
+        const menu = document.getElementById('menu');
+        const body = document.body;
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        // Добавляем обработчик события клика на header-burger
+        headerBurger.addEventListener('click', function() {
+            toggleHeaderBurger();
+            toggleMenu();
+        });
+
+        // Добавляем обработчик события клика на каждый пункт меню
+        menuItems.forEach(function(menuItem) {
+            menuItem.addEventListener('click', function() {
+                toggleHeaderBurger();
+                toggleMenu();
+            });
+        });
+
+        menuButton.addEventListener('click', function() {
+            toggleHeaderBurger();
+            toggleMenu();
+        });
+
+        // Функция для открытия/закрытия меню и управления скроллингом
+        function toggleMenu() {
+            if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                // Если nav-menu скрыто, показываем его
+                navMenu.style.display = 'block';
+                menuButton.style.display = 'block';
+                menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+                body.style.overflow = 'hidden';
+            } else {
+                // Если nav-menu видимо, скрываем его
+                navMenu.style.display = 'none';
+                menuButton.style.display = 'none';
+                menu.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                body.style.overflow = 'auto';
+            }
+        }
+
+        function toggleHeaderBurger() {
+            headerBurger.classList.toggle('active');
+        }
+    }
+});
+
+
 const details = document.querySelectorAll('details');
 
 // Проходимся по каждому элементу
