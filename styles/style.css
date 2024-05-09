@@ -1060,6 +1060,7 @@ iframe {
     .header-burger-ghost {
         width: 50px;
         height: 24px;
+        display: block;
     }
     .header-burger-span {
         position: absolute;
