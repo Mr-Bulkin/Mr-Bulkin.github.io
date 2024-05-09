@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navMenu.style.display === 'none' || navMenu.style.display === '') {
                 // Если nav-menu скрыто, показываем его
                 navMenu.style.display = 'block';
+                navMenu.style.overflow = 'hidden';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
                 // body.style.overflow = 'hidden';
