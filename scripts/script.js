@@ -95,18 +95,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.display = 'block';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                body.style.overflow = 'hidden';
+                // body.style.overflow = 'hidden';
             } else {
                 // Если nav-menu видимо, скрываем его
                 navMenu.style.display = 'none';
                 menuButton.style.display = 'none';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                body.style.overflow = 'auto';
+                // body.style.overflow = 'auto';
             }
         }
 
         function toggleHeaderBurger() {
             headerBurger.classList.toggle('active');
+            body.classList.toggle('lock')
         }
     }
 });
