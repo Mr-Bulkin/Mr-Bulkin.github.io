@@ -1166,7 +1166,8 @@ iframe {
         overflow-x: hidden;
     }
 
-    body.lock {
+    body.lock,
+    html.lock {
         overflow: hidden;
     }
 
