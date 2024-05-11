@@ -1107,8 +1107,7 @@ iframe {
 
     .nav-menu {
         position: fixed;
-        top: 64px;
-        /* top: 0; */
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
@@ -1137,7 +1136,6 @@ iframe {
         margin-top: 227px;
         font-size: 20px;
         font-weight: 570;
-        /* position: relative; */
     }
 
     .nav-menu ul li:first-child {
