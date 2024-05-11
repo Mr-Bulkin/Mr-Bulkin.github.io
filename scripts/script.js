@@ -96,13 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.overflow = 'hidden';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                // body.style.overflow = 'hidden';
             } else {
                 // Если nav-menu видимо, скрываем его
                 navMenu.style.display = 'none';
                 menuButton.style.display = 'none';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                // body.style.overflow = 'auto';
             }
         }
 
