@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuButton = document.getElementById('menu-button');
         const menu = document.getElementById('menu');
         const body = document.body;
-        const html = document.html;
+        const html = document.documentElement;
         const menuItems = document.querySelectorAll('.menu-item');
 
         // Добавляем обработчик события клика на header-burger
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function toggleHeaderBurger() {
             headerBurger.classList.toggle('active');
             html.classList.toggle('lock');
-            body.classList.toggle('lock')
+            body.classList.toggle('lock');
         }
     }
 });
