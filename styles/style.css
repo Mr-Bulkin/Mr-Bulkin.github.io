@@ -1124,7 +1124,9 @@ iframe {
         font-size: 20px;
         z-index: 2;
         top: 710px;
-        margin: 0 112px;
+        /* margin: 0 112px; */
+        left: 50%;
+        margin-left: -103px;
         display: none;
     }
 
@@ -1161,7 +1163,7 @@ iframe {
     body {
         zoom: 1;
         background-color: rgba(255, 255, 255, 1);
-        max-width: 430px;
+        /* max-width: 430px; */
         margin: 0;
         overflow-x: hidden;
     }
@@ -1204,7 +1206,7 @@ iframe {
     }
 
     .menu {
-        max-width: 100%;
+        max-width: 430px;
         border-radius: 0;
         margin: 0;
         height: 64px;
@@ -1305,7 +1307,8 @@ iframe {
         z-index: 1;
         overflow: hidden;
         margin-top: 65px;
-        width: max(430px);
+        /* width: max(430px); */
+        max-width: 430px;
     }
     
     .graphics_about {
