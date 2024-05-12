@@ -1163,7 +1163,7 @@ iframe {
     body {
         zoom: 1;
         background-color: rgba(255, 255, 255, 1);
-        /* max-width: 430px; */
+        max-width: 430px;
         margin: 0;
         overflow-x: hidden;
     }
@@ -1844,7 +1844,7 @@ iframe {
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
         border-radius: 80px;
-        max-width: 1520px;
+        max-width: 390px;
         margin: 148px auto 0 auto;
         padding: 20px 20px 20px 60px;
         display: none;
