@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Находим элементы
         const headerBurger = document.querySelector('.header-burger');
         const navMenu = document.getElementById('nav-menu');
-        const menuButton = document.getElementById('menu-button');
+        const menuButton = document.getElementById('menu-button-mob');
         const menu = document.getElementById('menu');
         const body = document.body;
         const html = document.documentElement;
@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navMenu.style.display === 'none' || navMenu.style.display === '') {
                 // Если nav-menu скрыто, показываем его
                 navMenu.style.display = 'block';
-                navMenu.style.overflow = 'hidden';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
             } else {
