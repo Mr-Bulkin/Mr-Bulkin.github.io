@@ -67,8 +67,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuButton = document.getElementById('menu-button-mob');
         const menu = document.getElementById('menu');
         const body = document.body;
-        const html = document.documentElement;
+        // const html = document.documentElement;
         const menuItems = document.querySelectorAll('.menu-item');
+
+        function preventKeyBoardScroll(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+        
+        function disableScroll() {
+            document.body.addEventListener('touchmove', preventKeyBoardScroll, { passive: false });
+        }
+        
+        function enableScroll() {
+            document.body.removeEventListener('touchmove', preventKeyBoardScroll);
+        }
 
         // Добавляем обработчик события клика на header-burger
         headerBurger.addEventListener('click', function() {
@@ -96,21 +110,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.display = 'block';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+                disableScroll();
             } else {
                 // Если nav-menu видимо, скрываем его
                 navMenu.style.display = 'none';
                 menuButton.style.display = 'none';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                enableScroll();
             }
         }
 
         function toggleHeaderBurger() {
             headerBurger.classList.toggle('active');
             // html.classList.toggle('lock');
-            body.classList.toggle('lock');
+            // body.classList.toggle('lock');
         }
     }
 });
+
+document.querySelector('.body').addEventListener('wheel', preventScroll, {passive: false});
+
+function preventScroll(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+}
 
 
 const details = document.querySelectorAll('details');
