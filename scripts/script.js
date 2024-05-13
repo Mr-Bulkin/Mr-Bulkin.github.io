@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function toggleHeaderBurger() {
             headerBurger.classList.toggle('active');
-            html.classList.toggle('lock');
+            // html.classList.toggle('lock');
             body.classList.toggle('lock');
         }
     }
