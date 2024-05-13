@@ -1063,11 +1063,15 @@ iframe {
     .header { 
         max-width: 100%;
     }
-
-    body.lock,
-    html.lock {
+/* 
+    body.lock {
         overflow: hidden;
     }
+
+    
+    html.lock {
+        overflowx: hidden;
+    } */
 
     .header-burger {
         display: block;
