@@ -1,43 +1,3 @@
-var button = document.getElementById("show-more");
-var list = document.getElementById("cards");
-var items = list.getElementsByClassName("card");
-if ( window.matchMedia("(max-width: 430px)").matches)
-{
-    var visibleItemCount = 4;
-}
-else
-{
-    var visibleItemCount = 3;
-}
-var hiddenItemCount = items.length - visibleItemCount; // количество скрытых элементов
-var isHidden = true; // флаг для отслеживания состояния кнопки
-
-// Скрыть все элементы, кроме первых visibleItemCount
-for (var i = visibleItemCount; i < items.length; i++) {
-    items[i].style.display = "none";
-}
-
-button.onclick = function() {
-    if (isHidden) {
-        // Показать следующие hiddenItemCount элементов
-        for (var i = visibleItemCount; i < visibleItemCount + hiddenItemCount; i++) {
-            if (items[i]) {
-                items[i].style.display = "block";
-            }
-        }
-        button.textContent = "Скрыть";
-    } else {
-        // Скрыть все элементы, кроме первых visibleItemCount
-        for (var i = visibleItemCount; i < items.length; i++) {
-            items[i].style.display = "none";
-        }
-        button.textContent = "Показать еще";
-    }
-    isHidden = !isHidden; // Инвертировать состояние кнопки
-};
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item details');
 
@@ -55,19 +15,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
+    const details = document.querySelectorAll('details');
+
+    details.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const openItem = document.querySelector('details[open]');
+        if (openItem) openItem.open = false;
+        if (openItem !== item) item.open = true 
+    })
+    })
+
+
+
+    var button = document.getElementById("show-more");
+    var list = document.getElementById("cards");
+    var items = list.getElementsByClassName("card");
 
     if ( window.matchMedia("(max-width: 430px)").matches)
     {
-        // Находим элементы
+        var visibleItemCount = 4;
+
         const headerBurger = document.querySelector('.header-burger');
         const navMenu = document.getElementById('nav-menu');
         const menuButton = document.getElementById('menu-button-mob');
         const menu = document.getElementById('menu');
         const body = document.body;
-        // const html = document.documentElement;
         const menuItems = document.querySelectorAll('.menu-item');
 
         function preventKeyBoardScroll(e) {
@@ -84,13 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeEventListener('touchmove', preventKeyBoardScroll);
         }
 
-        // Добавляем обработчик события клика на header-burger
         headerBurger.addEventListener('click', function() {
             toggleHeaderBurger();
             toggleMenu();
         });
 
-        // Добавляем обработчик события клика на каждый пункт меню
         menuItems.forEach(function(menuItem) {
             menuItem.addEventListener('click', function() {
                 toggleHeaderBurger();
@@ -103,16 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleMenu();
         });
 
-        // Функция для открытия/закрытия меню и управления скроллингом
         function toggleMenu() {
             if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-                // Если nav-menu скрыто, показываем его
                 navMenu.style.display = 'block';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
                 disableScroll();
             } else {
-                // Если nav-menu видимо, скрываем его
                 navMenu.style.display = 'none';
                 menuButton.style.display = 'none';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 0)';
@@ -122,125 +91,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function toggleHeaderBurger() {
             headerBurger.classList.toggle('active');
-            // html.classList.toggle('lock');
-            // body.classList.toggle('lock');
         }
     }
+    else
+    {
+        var visibleItemCount = 3;
+    }
+
+    var hiddenItemCount = items.length - visibleItemCount;
+    var isHidden = true;
+
+    for (var i = visibleItemCount; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    button.onclick = function() {
+        if (isHidden) {
+            for (var i = visibleItemCount; i < visibleItemCount + hiddenItemCount; i++) {
+                if (items[i]) {
+                    items[i].style.display = "block";
+                }
+            }
+            button.textContent = "Скрыть";
+        } else {
+            for (var i = visibleItemCount; i < items.length; i++) {
+                items[i].style.display = "none";
+            }
+            button.textContent = "Показать еще";
+        }
+        isHidden = !isHidden;
+    };
 });
 
-document.querySelector('.body').addEventListener('wheel', preventScroll, {passive: false});
+let currentImageIndex = 1;
+let intervalId;
 
-function preventScroll(e){
-    e.preventDefault();
-    e.stopPropagation();
-
-    return false;
-}
-
-
-const details = document.querySelectorAll('details');
-
-// Проходимся по каждому элементу
-details.forEach(item => {
-
-  // На каждый элемент вешаем слушатель события клика
-  item.addEventListener('click', (e) => {
-
-    // Сбрасываем стандартное действие при клике
-    e.preventDefault();
-    
-    // Находим открытый элемент
-    const openItem = document.querySelector('details[open]');
-    
-    // Если есть открытый элемент удаляем ему атрибут open
-    if (openItem) openItem.open = false;
-
-    // Если открытый элемент не является тем, на который мы нажали, то нажатому элементу добавляем атрибут open
-    if (openItem !== item) item.open = true 
-  })
-})
-
-let currentImageIndex = 1; // Индекс текущего изображения
-let intervalId; // Переменная для хранения идентификатора интервала
-let touchStartX; // Переменная для хранения начальной позиции касания
-let touchEndX; // Переменная для хранения конечной позиции касания
-
-// Функция для смены изображения
 function changeImage(direction) {
-    const totalImages = 3; // Общее количество изображений
+    const totalImages = 3;
     const imgElement = document.getElementById('marketing-img');
 
     if (direction === 'next') {
-        currentImageIndex = (currentImageIndex % totalImages) + 1; // Увеличиваем индекс и циклически переходим к следующему изображению
+        currentImageIndex = (currentImageIndex % totalImages) + 1;
     } else if (direction === 'prev') {
-        currentImageIndex = (currentImageIndex - 2 + totalImages) % totalImages + 1; // Уменьшаем индекс и циклически переходим к предыдущему изображению
+        currentImageIndex = (currentImageIndex - 2 + totalImages) % totalImages + 1;
     }
 
-    imgElement.src = `image/marketing/marketing${currentImageIndex}.png`; // Устанавливаем новый источник изображения
+    imgElement.src = `image/marketing/marketing${currentImageIndex}.png`;
 }
 
-// Функция для запуска интервала смены изображений
 function startInterval() {
     intervalId = setInterval(function() {
-        changeImage('next'); // Переключаемся на следующее изображение
-    }, 10000); // Интервал смены изображений каждые 10 секунд (10000 миллисекунд)
+        changeImage('next');
+    }, 3000);
 }
 
-// Запускаем интервал смены изображений
 startInterval();
 
-// Обработчик события для кнопки "Вперед"
 document.getElementById('next-btn').addEventListener('click', function() {
-    clearInterval(intervalId); // Очищаем предыдущий интервал
-    changeImage('next'); // Переключаем изображение
-    startInterval(); // Запускаем новый интервал
+    const currentIndexBeforeReset = currentImageIndex; // Сохраняем текущий индекс изображения
+    clearInterval(intervalId); // Сбросить интервал
+    changeImage('next');
+    currentImageIndex = currentIndexBeforeReset; // Восстанавливаем текущий индекс изображения
+    startInterval(); // Запустить интервал заново
 });
 
-// Обработчик события для кнопки "Назад"
 document.getElementById('prev-btn').addEventListener('click', function() {
-    clearInterval(intervalId); // Очищаем предыдущий интервал
-    changeImage('prev'); // Переключаем изображение
-    startInterval(); // Запускаем новый интервал
+    const currentIndexBeforeReset = currentImageIndex; // Сохраняем текущий индекс изображения
+    clearInterval(intervalId); // Сбросить интервал
+    changeImage('prev');
+    currentImageIndex = currentIndexBeforeReset; // Восстанавливаем текущий индекс изображения
+    startInterval(); // Запустить интервал заново
 });
 
-// Функция для обработки свайпа
-function handleSwipe(startX, endX) {
-    const threshold = 50; // Пороговое значение для определения свайпа
-    const deltaX = endX - startX;
+const imgElement = document.getElementById('marketing-img');
+const hammer = new Hammer(imgElement);
 
-    if (deltaX > threshold) {
-        // Свайп вправо
-        clearInterval(intervalId); // Очищаем предыдущий интервал
-        changeImage('prev'); // Переключаем изображение
-        startInterval(); // Запускаем новый интервал
-    } else if (deltaX < -threshold) {
-        // Свайп влево
-        clearInterval(intervalId); // Очищаем предыдущий интервал
-        changeImage('next'); // Переключаем изображение
-        startInterval(); // Запускаем новый интервал
-    }
-}
+hammer.on('swipeleft', function() {
+    clearInterval(intervalId); // Сбросить интервал
+    changeImage('next');
+    startInterval(); // Запустить интервал заново
+});
 
-// Функция для обработки события touchstart
-function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX; // Запоминаем начальную позицию касания
-}
-
-// Функция для обработки события touchmove
-function handleTouchMove(event) {
-    touchEndX = event.touches[0].clientX; // Запоминаем конечную позицию касания
-}
-
-// Функция для обработки события touchend
-function handleTouchEnd(event) {
-    if (touchStartX && touchEndX) {
-        handleSwipe(touchStartX, touchEndX); // Обрабатываем свайп
-        touchStartX = null;
-        touchEndX = null;
-    }
-}
-
-// Добавляем обработчики событий для свайпа
-document.addEventListener('touchstart', handleTouchStart);
-document.addEventListener('touchmove', handleTouchMove);
-document.addEventListener('touchend', handleTouchEnd);
+hammer.on('swiperight', function() {
+    clearInterval(intervalId); // Сбросить интервал
+    changeImage('prev');
+    startInterval(); // Запустить интервал заново
+});
