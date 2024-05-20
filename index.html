@@ -25,8 +25,12 @@
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/adaptive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+
 </head>
 <body>
+    <div class="wrapper">
     <header class="header">
         <div class="header-banner">
             <div class="menu" id="menu">
@@ -72,8 +76,8 @@
 
     <main class="main">
         <div class="marketing-block">
-            <button class="arrow-button left-button" onclick="changeImage('prev')"><img src="image/larr.svg"></button>
-            <button class="arrow-button right-button" onclick="changeImage('next')"><img src="image/rarr.svg"></button>
+            <button id="prev-btn" class="arrow-button left-button" onclick="changeImage('prev')"><img src="image/larr.svg"></button>
+            <button id="next-btn" class="arrow-button right-button" onclick="changeImage('next')"><img src="image/rarr.svg"></button>
             <img id="marketing-img" src="image/marketing/marketing1.png" class="marketing-img">
         </div>
         <div class="about" id="about">
@@ -113,7 +117,15 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/programmer.svg" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title-programmer">Основы логики и программирования</h3>
+                                <div class="card-text">Длительность 9 мес.</div>
+                                <a href="#popup__OLIP" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -121,7 +133,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -129,7 +141,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -137,7 +149,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -145,7 +157,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -153,15 +165,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-programmer">Компьютерная грамотность</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="image/programmer.svg" class="card-img">
-                            <div class="card-body">
-                                <h3 class="card-title-programmer">Компьютерная грамотность</h3>
-                                <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-programmer">Посмотреть</a>
+                                <a href="#popup" class="button card-button-programmer popup-link">Посмотреть</a>
                             </div>
                         </div>
                     </div>
@@ -180,7 +184,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-disigner">Графический дизайн</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-disigner">Посмотреть</a>
+                                <a href="#popup-des__GD" class="button card-button-disigner popup-link">Посмотреть</a>
                             </div>
                         </div>
                         <div class="card">
@@ -188,7 +192,7 @@
                             <div class="card-body">
                                 <h3 class="card-title-disigner">Графический дизайн</h3>
                                 <div class="card-text">Длительность 9 мес.</div>
-                                <a href="#" class="button card-button-disigner">Посмотреть</a>
+                                <a href="#popup-des" class="button card-button-disigner popup-link">Посмотреть</a>
                             </div>
                         </div>
                     </div>
@@ -352,7 +356,7 @@
             <a href="#form" class="button end-link">Оставить заявку</a>
         </div>
     </main>
-
+    <div class="popup__ghost" id="popup__ghost"></div>
     <footer class="footer">
         <nav class="footer-nav-menu">
             <ul>
@@ -366,6 +370,151 @@
             <img src="image/logo-white.svg" class="logo-img">
         </div>
     </footer>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#popup__ghost" class="popup__close close-popup"><img src="image/menu_arr.svg">Вернуться</a>
+                <div class="popup__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup__title">Компьютерная грамотность</div>
+                <div class="popup__text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt inventore architecto facere reiciendis labore officia ad cum. Aspernatur repellendus, natus quasi eos dolor inventore odio, libero vel aliquam delectus cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores hic libero voluptas quis quae est aliquam labore eius harum? Distinctio minus laboriosam repellat asperiores necessitatibus, sapiente molestias voluptatum nesciunt.
+                </div>
+                <form action="#" class="popup__form">
+                    <div>
+                        <label for="name" class="form-label">Ваше имя</label><br>
+                        <input type="text" onkeydown="return /[a-z\а-я]/i.test(event.key)" id="name" class="form-input" placeholder="Ваше имя">
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Номер телефона</label><br>
+                        <input type="tel" onkeydown="return /[0-9\+\del]/i.test(event.key)" id="phone" class="form-input" placeholder="Номер телефона">
+                    </div>
+                </form>
+                <div class="popup__button-wrapper">
+                    <a href="#popup_end" class="button popup__button popup-link">Отправить</a>
+                </div>
+                <div class="popup__personal-data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cumque at ullam dolorum ipsa iste debitis. Modi, porro voluptate? Nihil vero totam nam corporis ab earum aliquid amet. Vitae, suscipit!</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup__OLIP" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#popup__ghost" class="popup__close close-popup"><img src="image/menu_arr.svg">Вернуться</a>
+                <div class="popup__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup__title">Основы логики и программирования</div>
+                <div class="popup__text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt inventore architecto facere reiciendis labore officia ad cum. Aspernatur repellendus, natus quasi eos dolor inventore odio, libero vel aliquam delectus cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores hic libero voluptas quis quae est aliquam labore eius harum? Distinctio minus laboriosam repellat asperiores necessitatibus, sapiente molestias voluptatum nesciunt.
+                </div>
+                <form action="#" class="popup__form">
+                    <div>
+                        <label for="name" class="form-label">Ваше имя</label><br>
+                        <input type="text" onkeydown="return /[a-z\а-я]/i.test(event.key)" id="name" class="form-input" placeholder="Ваше имя">
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Номер телефона</label><br>
+                        <input type="tel" onkeydown="return /[0-9\+\del]/i.test(event.key)" id="phone" class="form-input" placeholder="Номер телефона">
+                    </div>
+                </form>
+                <div class="popup__button-wrapper">
+                    <a href="#popup_end" class="button popup__button popup-link">Отправить</a>
+                </div>
+                <div class="popup__personal-data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cumque at ullam dolorum ipsa iste debitis. Modi, porro voluptate? Nihil vero totam nam corporis ab earum aliquid amet. Vitae, suscipit!</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_end" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup-end__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup-end__title">Заявка принята</div>
+                <div class="popup-end__button-wrapper">
+                    <a href="#" class="button popup__button popup-link close-popup">Закрыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-des" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#popup__ghost" class="popup__close close-popup"><img src="image/menu_arr.svg">Вернуться</a>
+                <div class="popup__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup-des__title">Компьютерная грамотность</div>
+                <div class="popup__text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt inventore architecto facere reiciendis labore officia ad cum. Aspernatur repellendus, natus quasi eos dolor inventore odio, libero vel aliquam delectus cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores hic libero voluptas quis quae est aliquam labore eius harum? Distinctio minus laboriosam repellat asperiores necessitatibus, sapiente molestias voluptatum nesciunt.
+                </div>
+                <form action="#" class="popup__form">
+                    <div>
+                        <label for="name" class="form-label">Ваше имя</label><br>
+                        <input type="text" onkeydown="return /[a-z\а-я]/i.test(event.key)" id="name" class="form-input" placeholder="Ваше имя">
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Номер телефона</label><br>
+                        <input type="tel" onkeydown="return /[0-9\+\del]/i.test(event.key)" id="phone" class="form-input" placeholder="Номер телефона">
+                    </div>
+                </form>
+                <div class="popup__button-wrapper">
+                    <a href="#popup_end-des" class="button popup-des__button popup-link">Отправить</a>
+                </div>
+                <div class="popup__personal-data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cumque at ullam dolorum ipsa iste debitis. Modi, porro voluptate? Nihil vero totam nam corporis ab earum aliquid amet. Vitae, suscipit!</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-des__GD" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#popup__ghost" class="popup__close close-popup"><img src="image/menu_arr.svg">Вернуться</a>
+                <div class="popup__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup-des__title">Графический дизайн</div>
+                <div class="popup__text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt inventore architecto facere reiciendis labore officia ad cum. Aspernatur repellendus, natus quasi eos dolor inventore odio, libero vel aliquam delectus cumque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores hic libero voluptas quis quae est aliquam labore eius harum? Distinctio minus laboriosam repellat asperiores necessitatibus, sapiente molestias voluptatum nesciunt.
+                </div>
+                <form action="#" class="popup__form">
+                    <div>
+                        <label for="name" class="form-label">Ваше имя</label><br>
+                        <input type="text" onkeydown="return /[a-z\а-я]/i.test(event.key)" id="name" class="form-input" placeholder="Ваше имя">
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Номер телефона</label><br>
+                        <input type="tel" onkeydown="return /[0-9\+\del]/i.test(event.key)" id="phone" class="form-input" placeholder="Номер телефона">
+                    </div>
+                </form>
+                <div class="popup__button-wrapper">
+                    <a href="#popup_end-des" class="button popup-des__button popup-link">Отправить</a>
+                </div>
+                <div class="popup__personal-data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cumque at ullam dolorum ipsa iste debitis. Modi, porro voluptate? Nihil vero totam nam corporis ab earum aliquid amet. Vitae, suscipit!</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_end-des" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup-end__logo">
+                    <img src="image/logo.svg" class="popup__logo-img">
+                </div>
+                <div class="popup-des-end__title">Заявка принята</div>
+                <div class="popup-end__button-wrapper">
+                    <a href="#" class="button popup-des__button popup-link close-popup">Закрыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="./scripts/script.js"></script>
+<script src="./scripts/popups.js"></script>
 </html>
