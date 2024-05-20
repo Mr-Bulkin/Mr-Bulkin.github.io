@@ -9,9 +9,12 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(249, 249, 251, 1);
     overflow-x: hidden;
-    min-height: 100vh;
+}
+
+.wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 p, h2, h3 {
