@@ -8,7 +8,7 @@ body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(249, 249, 251, 1);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .wrapper {
@@ -749,6 +749,15 @@ input:-moz-placeholder {
     padding-bottom: 36px;
 }
 
+details > summary {
+    
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+  
+
 .faq-answer {
     font-size: 24px;
     font-weight: 400;
@@ -803,6 +812,7 @@ input:-moz-placeholder {
     padding-right: 20px;
     margin: 119px auto 0 auto;
     padding: 50px 0;
+    overflow: hidden;
 }
 
 .feedback-header {
@@ -855,21 +865,29 @@ input:-moz-placeholder {
 
 .cards-feedback {
     padding-top: 121px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 26px;
+    display: flex;
+    transition: margin-left 1s;
+}
+
+.cards-feedback::-webkit-scrollbar {
+    width: 0;
 }
 
 .card-feedback {
+    width: 360px;
     height: 400px;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 21px;
     box-shadow: 0 9px 13 rgba(100, 84, 69, 0.41);
-    overflow: hidden;
+    overflow: visible;
+    margin-right: 26px;
+}
+
+.card-feedback:last-child {
+    margin-right: 0;
 }
 
 .card-feedback-header {
-
     padding: 20px 25px;
 }
 
@@ -886,12 +904,13 @@ input:-moz-placeholder {
 }
 
 .card-feedback-body {
+    width: calc(360px - 25px * 2);
     padding: 0 23px 25px 25px;
     font-size: 13px;
     font-weight: 500;
     color: rgba(69, 69, 69, 1);
     line-height: 19.5px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .feedback-buttons {
@@ -1479,11 +1498,12 @@ iframe {
         box-shadow: 0 17px 40px rgba(0, 0, 0, 0.15);
         border-radius: 15px;
         overflow: hidden;
-        z-index: -1;
+        z-index: 0;
         
     }
     
     .arrow-button {
+        /* visibility: hidden; */
         display: none;
     }
     
@@ -1996,7 +2016,6 @@ iframe {
     .cards-feedback {
         display: flex;
         padding-top: 55px;
-        gap: 0;
         justify-content: space-between;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
@@ -2016,7 +2035,7 @@ iframe {
 
     .card-feedback:last-child {
         margin-right: 0;
-      }
+    }
     
     .card-feedback-header {
         padding: 10px 23px;
@@ -2354,6 +2373,7 @@ iframe {
     }
     
     .footer-logo {
-        margin: 189px auto 98px auto;
+        margin: 189px auto 90px auto;
+        /* margin: 96px auto 92px auto; */
     }
 }
