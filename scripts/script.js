@@ -126,45 +126,45 @@ document.addEventListener('DOMContentLoaded', function() {
         isHidden = !isHidden;
     };
 
-    var cardsFeedback = document.querySelector('.cards-feedback');
-    var cardFeedbacks = document.querySelectorAll('.card-feedback');
-    var currentMargin = 0;
+    if ( window.matchMedia("(min-width: 431px)").matches)
+    {
+        var cardsFeedback = document.querySelector('.cards-feedback');
+        var cardFeedbacks = document.querySelectorAll('.card-feedback');
+        var currentMargin = 0;
 
-    // Рассчитать общую ширину всех карточек
-    var totalWidth = 0;
-    cardFeedbacks.forEach(function(card) {
-        totalWidth += card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight);
-    });
-    cardsFeedback.style.width = totalWidth + 'px';
+        // Рассчитать общую ширину всех карточек
+        var totalWidth = 0;
+        cardFeedbacks.forEach(function(card) {
+            totalWidth += card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight);
+        });
+        cardsFeedback.style.width = totalWidth + 'px';
 
-    // Функция для сдвига влево
-    function slideNext() {
-        var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
-        if (Math.abs(currentMargin) >= totalWidth - cardWidth * 3) {
-            currentMargin = 0;
-        } else {
-            currentMargin -= cardWidth;
+        // Функция для сдвига влево
+        function slideNext() {
+            var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
+            if (Math.abs(currentMargin) >= totalWidth - cardWidth * 3) {
+                currentMargin = 0;
+            } else {
+                currentMargin -= cardWidth;
+            }
+            cardsFeedback.style.marginLeft = currentMargin + 'px';
         }
-        cardsFeedback.style.marginLeft = currentMargin + 'px';
-    }
 
-    // Функция для сдвига вправо
-    function slidePrev() {
-        var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
-        if (currentMargin >= 0) {
-            currentMargin = -(totalWidth - cardWidth * 3);
-        } else {
-            currentMargin += cardWidth;
+        // Функция для сдвига вправо
+        function slidePrev() {
+            var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
+            if (currentMargin >= 0) {
+                currentMargin = -(totalWidth - cardWidth * 3);
+            } else {
+                currentMargin += cardWidth;
+            }
+            cardsFeedback.style.marginLeft = currentMargin + 'px';
         }
-        cardsFeedback.style.marginLeft = currentMargin + 'px';
+
+        // Привязка событий к кнопкам
+        document.getElementById('sl-next').addEventListener('click', slideNext);
+        document.getElementById('sl-prev').addEventListener('click', slidePrev);
     }
-
-    // Привязка событий к кнопкам
-    document.getElementById('sl-next').addEventListener('click', slideNext);
-    document.getElementById('sl-prev').addEventListener('click', slidePrev);
-    
-    
-
 });
 
 let currentImageIndex = 1;
