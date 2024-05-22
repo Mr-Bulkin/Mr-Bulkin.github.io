@@ -1584,8 +1584,8 @@ iframe {
     .about::after {
         content: "";
         position: absolute;
-        top: 420px;
         left: -253px;
+        top: 95%;
         width: 396px;
         height: 182px;
         border-radius: 50%;
@@ -1949,6 +1949,10 @@ iframe {
         height: 40px;
         font-size: 14px;
         padding: 0 12px;
+    }
+
+    .faq-question {
+        max-width: 330px;
     }
     
     .faq-toggle {
