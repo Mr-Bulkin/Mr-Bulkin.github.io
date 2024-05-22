@@ -165,6 +165,20 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('sl-next').addEventListener('click', slideNext);
         document.getElementById('sl-prev').addEventListener('click', slidePrev);
     }
+
+    var submitButton = document.getElementById('submitButton');
+    var form = document.getElementById('myForm');
+    var directionSelect = document.getElementById('direction');
+
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (form.checkValidity()) {
+            form.reset();
+            directionSelect.value = '#';
+        } else {
+            form.reportValidity();
+        }
+    });
 });
 
 let currentImageIndex = 1;
