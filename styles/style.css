@@ -733,6 +733,13 @@ input:-moz-placeholder {
     box-shadow: 0 0 41px rgba(0, 117, 255, 0.28);
 }
 
+.form__personal-data {
+    padding-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(120, 120, 120, 1);
+}
+
 .faq-container {
     max-width: 1253px;
     margin: 157px auto 0 auto;
@@ -1911,6 +1918,14 @@ iframe {
 
     .submit-button-div {
         padding-bottom: 35px;
+    }
+
+    .form__personal-data {
+        width: 327px;
+        padding-top: 10px;
+        font-size: 10px;
+        font-weight: 400;
+        color: rgba(120, 120, 120, 1);
     }
 
 
