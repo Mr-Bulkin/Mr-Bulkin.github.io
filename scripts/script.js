@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const navMenu = document.getElementById('nav-menu');
         const menuButton = document.getElementById('menu-button-mob');
         const menu = document.getElementById('menu');
-        const body = document.body;
         const marketing = document.querySelector('.marketing-block');
         const menuItems = document.querySelectorAll('.menu-item');
 
@@ -81,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.display = 'block';
                 menuButton.style.display = 'block';
                 menu.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                // marketing.style.z-index = '-1';
                 marketing.style.zIndex = '-1';
                 disableScroll();
             } else {
@@ -132,14 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var cardFeedbacks = document.querySelectorAll('.card-feedback');
         var currentMargin = 0;
 
-        // Рассчитать общую ширину всех карточек
         var totalWidth = 0;
         cardFeedbacks.forEach(function(card) {
             totalWidth += card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight);
         });
         cardsFeedback.style.width = totalWidth + 'px';
 
-        // Функция для сдвига влево
         function slideNext() {
             var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
             if (Math.abs(currentMargin) >= totalWidth - cardWidth * 3) {
@@ -150,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cardsFeedback.style.marginLeft = currentMargin + 'px';
         }
 
-        // Функция для сдвига вправо
         function slidePrev() {
             var cardWidth = cardFeedbacks[0].offsetWidth + parseInt(window.getComputedStyle(cardFeedbacks[0]).marginRight);
             if (currentMargin >= 0) {
@@ -161,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cardsFeedback.style.marginLeft = currentMargin + 'px';
         }
 
-        // Привязка событий к кнопкам
         document.getElementById('sl-next').addEventListener('click', slideNext);
         document.getElementById('sl-prev').addEventListener('click', slidePrev);
     }
@@ -206,32 +200,32 @@ function startInterval() {
 startInterval();
 
 document.getElementById('next-btn').addEventListener('click', function() {
-    const currentIndexBeforeReset = currentImageIndex; // Сохраняем текущий индекс изображения
-    clearInterval(intervalId); // Сбросить интервал
+    const currentIndexBeforeReset = currentImageIndex;
+    clearInterval(intervalId);
     changeImage('next');
-    currentImageIndex = currentIndexBeforeReset; // Восстанавливаем текущий индекс изображения
-    startInterval(); // Запустить интервал заново
+    currentImageIndex = currentIndexBeforeReset;
+    startInterval();
 });
 
 document.getElementById('prev-btn').addEventListener('click', function() {
-    const currentIndexBeforeReset = currentImageIndex; // Сохраняем текущий индекс изображения
-    clearInterval(intervalId); // Сбросить интервал
+    const currentIndexBeforeReset = currentImageIndex;
+    clearInterval(intervalId);
     changeImage('prev');
-    currentImageIndex = currentIndexBeforeReset; // Восстанавливаем текущий индекс изображения
-    startInterval(); // Запустить интервал заново
+    currentImageIndex = currentIndexBeforeReset;
+    startInterval();
 });
 
 const imgElement = document.getElementById('marketing-img');
 const hammer = new Hammer(imgElement);
 
 hammer.on('swipeleft', function() {
-    clearInterval(intervalId); // Сбросить интервал
+    clearInterval(intervalId);
     changeImage('next');
-    startInterval(); // Запустить интервал заново
+    startInterval();
 });
 
 hammer.on('swiperight', function() {
-    clearInterval(intervalId); // Сбросить интервал
+    clearInterval(intervalId);
     changeImage('prev');
-    startInterval(); // Запустить интервал заново
+    startInterval();
 });
